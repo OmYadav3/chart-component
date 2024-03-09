@@ -36,7 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://www.frontendmentor.io/solutions/responsive-page-of-chart-component-PoFYUfX-A4](https://www.frontendmentor.io/solutions/responsive-page-of-chart-component-PoFYUfX-A4)
 - Live Site URL: [https://omyadav-chart-component.netlify.app](https://omyadav-chart-component.netlify.app)
 
 ## My process
