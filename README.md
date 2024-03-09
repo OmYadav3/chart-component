@@ -11,7 +11,6 @@ This is a solution to the [Expenses chart component challenge on Frontend Mentor
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
@@ -48,13 +47,31 @@ Users should be able to:
 - CSS custom properties
 - Flexbox
 - Mobile-first workflow
+- Chart.js package
 - [React](https://reactjs.org/) - JS library
 - [TailwindCss](https://tailwindcss.com/) - For styles
 
 
+### what I learned
+
+- how to write a bargraph syntax 
+- how to customize chart component from Chart.js library📊
+- how to use ref hook in react.js 
+- how to use a date object in js
+- how to use try/catch block  
+
+### Useful Resources
+
+#### Chart.js package 
+
+- install command (npm i chart.js )
+
+
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Frontend Mentor - [@OmYadav3](https://www.frontendmentor.io/profile/OmYadav3)
+- Twitter - [@omyadav_3](https://twitter.com/Omyadav_3)
 
+## Acknowledgements
+
+-Thanks to my friend [@Akash](https://github.com/aakashjangra) for helping me and reminding the map function functionality.

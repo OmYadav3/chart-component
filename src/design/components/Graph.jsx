@@ -4,34 +4,29 @@ import Chart from "chart.js/auto"; // Importing Chart from 'chart.js/auto'
 const Graph = () => {
   const [graphData, setGraphData] = useState();
 
-
   useEffect(() => {
-   const fetchData = async () => {
-    try {
-        const response = await fetch(
-           '/data.json',
-        );
-    if(!response.ok){
-        throw new Error("failed to fetch data");
-
-    }
-    const jsonData = await response.json();
-    console.log(jsonData);   
-    setGraphData(jsonData);
-    }catch(e) {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/data.json");
+        if (!response.ok) {
+          throw new Error("failed to fetch data");
+        }
+        const jsonData = await response.json();
+        console.log(jsonData);
+        setGraphData(jsonData);
+      } catch (e) {
         console.error(err, "Error fetching data");
-    }
-   };
+      }
+    };
 
-   fetchData();
-  }, [])
-  
+    fetchData();
+  }, []);
 
   const chartRef = useRef(null);
   const chartInstance = useRef(null); // Reference to the chart instance
 
   useEffect(() => {
-    if(!graphData) return ;
+    if (!graphData) return;
     if (chartInstance.current) {
       // If chart instance already exists, destroy it before creating a new one
       chartInstance.current.destroy();
@@ -41,39 +36,45 @@ const Graph = () => {
     console.log(graphData.map((item) => item.day));
     chartInstance.current = new Chart(ctx, {
       type: "bar",
-      data: { 
+      data: {
         labels: graphData.map((item) => item.day),
         datasets: [
           {
-            label:'$',
-            data: graphData.map((item) => item.amount), 
+            label: "$",
+            data: graphData.map((item) => item.amount),
             // Sample data, you can replace it with your own
-            backgroundColor: graphData.map((item) => item.day=== new Date().toLocaleDateString('en-US', { weekday: 'short' }).toLowerCase()?"hsl(186, 34%, 60%)":'hsl(10, 79%, 65%)'),
+            backgroundColor: graphData.map((item) =>
+              item.day ===
+              new Date()
+                .toLocaleDateString("en-US", { weekday: "short" })
+                .toLowerCase()
+                ? "hsl(186, 34%, 60%)"
+                : "hsl(10, 79%, 65%)"
+            ),
             borderColor: ["red"],
             borderRadius: 5,
-            
           },
         ],
       },
       options: {
         scales: {
           y: {
-            display:false,
+            display: false,
           },
           x: {
-              grid: {
-                display: false
-              },
-              border: {
-                display:false
-              }
+            grid: {
+              display: false,
+            },
+            border: {
+              display: false,
+            },
           },
         },
         plugins: {
-            legend: {
-              display: false // Hide the legend
-            }
-          }
+          legend: {
+            display: false, // Hide the legend
+          },
+        },
       },
     });
 
@@ -102,7 +103,7 @@ const Graph = () => {
             Spending - last 7 days
           </div>
           <div className="w-[13rem] xs:w-[20rem]">
-            <canvas ref={chartRef} className="overflow" ></canvas>
+            <canvas ref={chartRef} className="overflow"></canvas>
           </div>
           <hr className=" w-full my-4 h-1 bg-gray-500 border-2 " />
           <div className="revenue w-full flex justify-between items-center ">
@@ -110,7 +111,9 @@ const Graph = () => {
               <div className="thismonth text-sm opacity-70">
                 Total this month
               </div>
-              <div className="money xs:text-4xl text-2xl font-[700]">$478.33</div>
+              <div className="money xs:text-4xl text-2xl font-[700]">
+                $478.33
+              </div>
             </div>
             <div className="percent">
               <div className="profit-lose font-[700]">+2.4%</div>
